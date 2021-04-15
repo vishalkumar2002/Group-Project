@@ -50,56 +50,8 @@
 					document.getElementById("t1").innerHTML="Fields With * Can't Be Left Empty!!";
 				}
 			}
-			function f2()
-			{
-				var mobile=document.getElementById("i2").value;
-				var mp=/^[0-9]{10}$/;
-				
-				if(mp.test(mobile))
-				{
-					document.getElementById("t2").style.color="Green";
-					document.getElementById("t2").innerHTML="Correct";
-				}
-				else
-				{
-					document.getElementById("t2").style.color="Black";
-					document.getElementById("t2").innerHTML="Incorrect";
-				}
-			}
-			function f22()
-			{
-				var mobile=document.getElementById("i2").value;
-				if(mobile.length==0)
-				{
-					document.getElementById("t2").style.color="Red";
-					document.getElementById("t2").innerHTML="Fields With * Can't Be Left Empty!!";
-				}
-			}
-			function f3()
-			{
-				var email=document.getElementById("i3").value;
-				var ep=/^\w+[0-9]*[#.]?[a-z0-9]+(@)[a-z]+(.com|.in|.edu.in)$/;
-				
-				if(ep.test(email))
-				{
-					document.getElementById("t3").style.color="Green";
-					document.getElementById("t3").innerHTML="Correct";
-				}
-				else
-				{
-					document.getElementById("t3").style.color="Black";
-					document.getElementById("t3").innerHTML="Incorrect";
-				}
-			}
-			function f33()
-			{
-				var email=document.getElementById("i3").value;
-				if(email.length==0)
-				{
-					document.getElementById("t3").style.color="Red";
-					document.getElementById("t3").innerHTML="Fields With * Can't Be Left Empty!!";
-				}
-			}
+		
+
 			function f4()
 			{
 				var password=document.getElementById("i4").value;
@@ -141,48 +93,23 @@
 					document.getElementById("t4").innerHTML="Fields With * Can't Be Left Empty!!";
 				}
 			}
-			function f5()
-			{
-				var confirmpass=document.getElementById("i5").value;
-				var password=document.getElementById("i4").value;
-				
-				if(password===confirmpass)
-				{
-					document.getElementById("t5").style.color="Green";
-					document.getElementById("t5").innerHTML="Correct";
-				}
-				else
-				{
-					document.getElementById("t5").style.color="Black";
-					document.getElementById("t5").innerHTML="Passwords Doesn't Match";
-				}
-			}
-			function f55()
-			{
-				var confirmpass=document.getElementById("i5").value;
-				if(confirmpass.length==0)
-				{
-					document.getElementById("t5").style.color="Red";
-					document.getElementById("t5").innerHTML="Fields With * Can't Be Left Empty!!";
-				}
-			}
+			
 			function f6()
 			{
 				var v1=document.getElementById("t1").innerHTML;
-				var v2=document.getElementById("t2").innerHTML;
-				var v3=document.getElementById("t3").innerHTML;
+			
+			
 				var v4=document.getElementById("t4").innerHTML;
-				var v5=document.getElementById("t5").innerHTML;
 				var v6="Correct";
 				var v7="",v8="Fields With * Can't Be Left Empty!!";
 				
-                if(v1===v2 && v1===v3 && v1===v4 && v1===v5 && v1===v6)
+                if( v1===v4&& v1===v6)
                 {
                     window.alert("All Provided Details Are Correct");
                 }
                 else
                 {
-					if(v1===v7||v2===v7||v3===v7||v4===v7||v5===v7||v1===v8||v2===v8||v3===v8||v4===v8||v5===v8)
+					if(v1===v7||v4===v7)
                     {
 						window.alert("One Or More Required Input Fields Are Empty");
 					}
@@ -193,46 +120,33 @@
                 }
 			}
 		</script>
+		<style>
+         table{
+         margin-left:350px;
+		 margin-top:200px;
+		 }
+		</style>
 	</head>
 	
 	<body>
-		<fieldset>
-		<legend align="center"><h2>Registeration Form</h2></legend>
+
 		<table cellspacing="5" cellpadding="5">
+		<div id="d1">
 			<tr>
-				<th>*Name :</th>
+				<th>User :</th>
 				<td><input type="text" id="i1" onkeyup="f1()" onblur="f11()"></td>
 				<td id="t1"></td>
 			</tr>
 			
 			<tr>
-				<th>*Mobile :</th>
-				<td><input type="text" id="i2" maxlength="10" onkeyup="f2()" onblur="f22()"></td>
-				<td id="t2"></td>
-			</tr>
-			
-			<tr>
-				<th>*Email :</th>
-				<td><input type="text" id="i3" onkeyup="f3()" onblur="f33()"></td>
-				<td id="t3"></td>
-			</tr>
-			
-			<tr>
-				<th>*Password :</th>
+				<th>Password :</th>
 				<td><input type="password" id="i4" required onkeyup="f4()" onblur="f44()"></td>
 				<td id="t4"></td>
 			</tr>
-			
-			<tr>
-				<th>*Confirm Password :</th>
-				<td><input type="password" id="i5" onkeyup="f5()" onblur="f55()"></td>
-				<td id="t5"></td>
-			</tr>
-			
 			<tr>
 				<td colspan="2" align="center"><input type="submit" onclick="f6()"></td>
 			</tr>
+			</div>
 		</table>
-		</fieldset>
 	</body>
 </html>
