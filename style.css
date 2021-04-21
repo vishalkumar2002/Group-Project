@@ -1,0 +1,19 @@
+.profile-img{
+    height:200px;
+    width:200px;
+    }
+    header{
+    background-color:yellow;
+    }
+    #hero{
+    background-color:orange;
+    }
+    #about{
+    background-color:red;
+    }
+    #contact{
+    background-color:green;
+    }
+    footer{
+    background-color:purple;
+    }
