@@ -1,152 +1,174 @@
-<!Doctype html>
 <html>
-	<head>
-		<style>
-			body
-			{
-				font-size:20px;
-			}
-			th
-			{
-				text-align:left;
-				width:250px;
-			}
-			#t1,#t2,#t3,#t4,#t5
-			{
-				font-weight:bold;
-			}
-			fieldset
-			{
-				border-color:LightGreen;
-				margin-left:auto;
-				margin-right:auto;
-				width:920px;
-			}
-		</style>
-		
-		<script>
-			function f1()
-			{
-				var name=document.getElementById("i1").value;
-				var np=/(^[A-Z]{1}[a-z]+$|^[A-Z]{1}[a-z]+\s{1}[A-Z]{1}[a-z]+$/;
-				
-				if(np.test(name))
-				{
-					document.getElementById("t1").style.color="Green";
-					document.getElementById("t1").innerHTML="Correct";
-				}
-				else
-				{
-					document.getElementById("t1").style.color="Black";
-					document.getElementById("t1").innerHTML="Incorrect";
-				}
-			}
-			function f11()
-			{
-				var name=document.getElementById("i1").value;
-				if(name.length==0)
-				{
-					document.getElementById("t1").style.color="Red";
-					document.getElementById("t1").innerHTML="Fields With * Can't Be Left Empty!!";
-				}
-			}
-		
+<head>
+<style>
+* {
+  margin: 0
+}
 
-			function f4()
-			{
-				var password=document.getElementById("i4").value;
-				var p1=/[A-Z]+/;
-				var p2=/[a-z]+/;
-				var p3=/[0-9]+/;
-				var p4=/[!@#$%^&*]/;
-				var l=password.length;
-				
-				if(p1.test(password) && p2.test(password) && p3.test(password) && p4.test(password) && 6<=l && l<=20)
-				{
-					document.getElementById("t4").style.color="Green";
-					document.getElementById("t4").style.fontSize="20px";
-					document.getElementById("t4").innerHTML="Correct";
-				}
-				else
-				{
-					if(l<6)
-					{
-						document.getElementById("t4").style.color="Black";
-						document.getElementById("t4").style.fontSize="20px";
-						document.getElementById("t4").innerHTML="Password Length is Too Less";
-					}
-					else
-					{
-						document.getElementById("t4").style.color="Black";
-						document.getElementById("t4").style.fontSize="14px";
-						document.getElementById("t4").innerHTML="Password Should Have an Uppercase, a Lowercase, a Digit and a Special Character";
-					}
-				}
-			}
-			function f44()
-			{
-				var password=document.getElementById("i4").value;
-				if(password.length==0)
-				{
-					document.getElementById("t4").style.color="Red";
-					document.getElementById("t4").style.fontSize="20px";
-					document.getElementById("t4").innerHTML="Fields With * Can't Be Left Empty!!";
-				}
-			}
-			
-			function f6()
-			{
-				var v1=document.getElementById("t1").innerHTML;
-			
-			
-				var v4=document.getElementById("t4").innerHTML;
-				var v6="Correct";
-				var v7="",v8="Fields With * Can't Be Left Empty!!";
-				
-                if( v1===v4&& v1===v6)
-                {
-                    window.alert("All Provided Details Are Correct");
-                }
-                else
-                {
-					if(v1===v7||v4===v7)
-                    {
-						window.alert("One Or More Required Input Fields Are Empty");
-					}
-					else
-					{
-						window.alert("All Provided Details Are Not Correct");
-					}
-                }
-			}
-		</script>
-		<style>
-         table{
-         margin-left:350px;
-		 margin-top:200px;
-		 }
-		</style>
-	</head>
-	
-	<body>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #6699cc;
+}
 
-		<table cellspacing="5" cellpadding="5">
-		<div id="d1">
-			<tr>
-				<th>User :</th>
-				<td><input type="text" id="i1" onkeyup="f1()" onblur="f11()"></td>
-				<td id="t1"></td>
-			</tr>
-			
-			<tr>
-				<th>Password :</th>
-				<td><input type="password" id="i4" required onkeyup="f4()" onblur="f44()"></td>
-				<td id="t4"></td>
-			</tr>
-			<tr>
-				<td colspan="2" align="center"><input type="submit" onclick="f6()"></td>
-			</tr>
-			</div>
-		</table>
-	</body>
+.container h1 {
+  color: white;
+  font-family: sans-serif;
+  margin: 20px;
+}
+
+.registartion-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 600px;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-family: sans-serif;
+  background-color: #154a68;
+  padding: 20px;
+}
+
+.registartion-form input,
+.registartion-form select,
+.registartion-form textarea {
+  border: none;
+  padding: 5px;
+  margin-top: 10px;
+  font-family: sans-serif;
+}
+
+.registartion-form input:focus,
+.registartion-form textarea:focus {
+  box-shadow: 3px 3px 10px rgb(228, 228, 228), -3px -3px 10px rgb(224, 224, 224);
+}
+
+.registartion-form .submit {
+  width: 100%;
+  padding: 8px 0;
+  font-size: 20px;
+  color: rgb(44, 44, 44);
+  background-color: #ffffff;
+  border-radius: 5px;
+}
+
+.registartion-form .submit:hover {
+  box-shadow: 3px 3px 6px rgb(255, 214, 176);
+}
+</style>
+
+</head>
+<body>
+<div class="container">
+  <h1>REGISTRATION</h1>
+  <form name="registration" class="registartion-form" onsubmit="return formValidation()">
+    <table>
+      <tr>
+        <td><label for="name">Name:</label></td>
+        <td><input type="text" name="name" id="name" placeholder="your name"></td>
+      </tr>
+      <tr>
+        <td><label for="email">Email:</label></td>
+        <td><input type="text" name="email" id="email" placeholder="your email"></td>
+      </tr>
+      <tr>
+        <td><label for="password">Password:</label></td>
+        <td><input type="password" name="password" id="password"></td>
+      </tr>
+      <tr>
+        <td><label for="phoneNumber">Phone Number:</label></td>
+        <td><input type="number" name="phoneNumber" id="phoneNumber"></td>
+      </tr>
+      <tr>
+        <td><label for="gender">Gender:</label></td>
+        <td>Male: <input type="radio" name="gender" value="male">
+          Female: <input type="radio" name="gender" value="female">
+          Other: <input type="radio" name="gender" value="other"></td>
+      </tr>
+      <tr>
+        <td><label for="language">language</label></td>
+        <td>
+          <select name="language" id="language">
+            <option value="">Select language</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Russian">Russian</option>
+          </select>
+        </td>
+      </tr>
+      <tr>
+        <td><label for="zipcode">Zip Code:</label></td>
+        <td><input type="number" name="zipcode" id="zipcode"></td>
+      </tr>
+      <tr>
+        <td><label for="about">About:</label></td>
+        <td><textarea name="about" id="about" placeholder="Write about yourself..."></textarea></td>
+      </tr>
+      <tr>
+        <td colspan="2"><input type="submit" class="submit" value="Register" /></td>
+      </tr>
+    </table>
+  </form>
+</div>
+<script>
+const name = document.getElementById("name");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const phoneNumber = document.getElementById("phoneNumber");
+const gender = document.registration;
+const language = document.getElementById("language");
+const zipcode = document.getElementById("zipcode");
+
+// function for form varification
+function formValidation() {
+  
+  // checking name length
+  if (name.value.length < 2 || name.value.length > 20) {
+    alert("Name length should be more than 2 and less than 21");
+    name.focus();
+    return false;
+  }
+  // checking email
+  if (email.value.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)) {
+    alert("Please enter a valid email!");
+    email.focus();
+    return false;
+  }
+  // checking password
+  if (!password.value.match(/^.{5,15}$/)) {
+    alert("Password length must be between 5-15 characters!");
+    password.focus();
+    return false;
+  }
+  // checking phone number
+  if (!phoneNumber.value.match(/^[1-9][0-9]{9}$/)) {
+    alert("Phone number must be 10 characters long number and first digit can't be 0!");
+    phoneNumber.focus();
+    return false;
+  }
+  // checking gender
+  if (gender.gender.value === "") {
+    alert("Please select your gender!");
+    return false;
+  }
+  // checking language
+  if (language.value === "") {
+    alert("Please select your language!")
+    return false;
+  }
+  // checking zip code
+  if (!zipcode.value.match(/^[0-9]{6}$/)) {
+    alert("Zip code must be 6 characters long number!");
+    zipcode.focus();
+    return false;
+  }
+  return true;
+}
+</script>
+</body>
 </html>
