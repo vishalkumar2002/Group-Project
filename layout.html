@@ -13,8 +13,11 @@
         <p>Press the button below to recieve a random quote!</p>
 
         <button onclick="generateQuote();">New Quote</button>
+        <button onclick = "setInterval(getRandomImage, 2000)"> Generate Image </button>  
         <p id="quoteOutput"></p>
         <p id="authorOutput"></p>
+        <br>
+        <span id="result" align="center"> </span>   
     </div>
     <script src="quotes.js"></script>
 </body>
