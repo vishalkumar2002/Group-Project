@@ -1,128 +1,67 @@
-<html>
-<head>
-<style>
-* {
-  margin: 0
-}
+<!DOCTYPE html>
 
-.container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 100vh;
-  background-color: #6699cc;
-}
-
-.container h1 {
-  color: white;
-  font-family: sans-serif;
-  margin: 20px;
-}
-
-.registartion-form {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 600px;
-  color: rgb(255, 255, 255);
-  font-size: 18px;
-  font-family: sans-serif;
-  background-color: #154a68;
-  padding: 20px;
-}
-
-.registartion-form input,
-.registartion-form select,
-.registartion-form textarea {
-  border: none;
-  padding: 5px;
-  margin-top: 10px;
-  font-family: sans-serif;
-}
-
-.registartion-form input:focus,
-.registartion-form textarea:focus {
-  box-shadow: 3px 3px 10px rgb(228, 228, 228), -3px -3px 10px rgb(224, 224, 224);
-}
-
-.registartion-form .submit {
-  width: 100%;
-  padding: 8px 0;
-  font-size: 20px;
-  color: rgb(44, 44, 44);
-  background-color: #ffffff;
-  border-radius: 5px;
-}
-
-.registartion-form .submit:hover {
-  box-shadow: 3px 3px 6px rgb(255, 214, 176);
-}
-</style>
-
-</head>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    
+    <link rel="stylesheet" href="style1.css">
+    <!-- <link rel="stylesheet" href="validation.js" -->
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
 <body>
-<div class="container">
-  <h1>REGISTRATION</h1>
-  <form name="registration" class="registartion-form" onsubmit="return formValidation()">
-    <table>
-      <tr>
-        <td><label for="name">Name:</label></td>
-        <td><input type="text" name="name" id="name" placeholder="your name"></td>
-      </tr>
-      <tr>
-        <td><label for="email">Email:</label></td>
-        <td><input type="text" name="email" id="email" placeholder="your email"></td>
-      </tr>
-      <tr>
-        <td><label for="password">Password:</label></td>
-        <td><input type="password" name="password" id="password"></td>
-      </tr>
-      <tr>
-        <td><label for="phoneNumber">Phone Number:</label></td>
-        <td><input type="number" name="phoneNumber" id="phoneNumber"></td>
-      </tr>
-      <tr>
-        <td><label for="gender">Gender:</label></td>
-        <td>Male: <input type="radio" name="gender" value="male">
-          Female: <input type="radio" name="gender" value="female">
-          Other: <input type="radio" name="gender" value="other"></td>
-      </tr>
-      <tr>
-        <td><label for="language">language</label></td>
-        <td>
-          <select name="language" id="language">
-            <option value="">Select language</option>
-            <option value="English">English</option>
-            <option value="Spanish">Spanish</option>
-            <option value="Hindi">Hindi</option>
-            <option value="Arabic">Arabic</option>
-            <option value="Russian">Russian</option>
-          </select>
-        </td>
-      </tr>
-      <tr>
-        <td><label for="zipcode">Zip Code:</label></td>
-        <td><input type="number" name="zipcode" id="zipcode"></td>
-      </tr>
-      <tr>
-        <td><label for="about">About:</label></td>
-        <td><textarea name="about" id="about" placeholder="Write about yourself..."></textarea></td>
-      </tr>
-      <tr>
-        <td colspan="2"><input type="submit" class="submit" value="Register" /></td>
-      </tr>
-    </table>
-  </form>
-</div>
-<script>
+  <div class="container">
+    <div class="title">Registration</div>
+    <div class="content">
+      <form action="layout.html">
+        <div class="user-details">
+          <div class="input-box">
+            <span class="details">Full Name</span>
+            <input type="name" id="name" placeholder="Enter your name" required>
+          </div>
+         
+          <div class="input-box">
+            <span class="details">Email</span>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Phone Number</span>
+            <input type="number" id="phoneNumber" placeholder="Enter your number" required>
+          </div>
+          <div class="input-box">
+            <span class="details">Password</span>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+        </div>
+        <div class="gender-details">
+          <input type="radio" name="gender" id="dot-1" class="gen">
+          <input type="radio" name="gender" id="dot-2" class="gen">
+         
+          <span class="gender-title">Gender</span>
+          <div class="category">
+            <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          </div>
+        </div>
+        <div class="button">
+      <a href="Form validation.html"> 
+            <input type="submit" value="Register">
+    
+            </a>
+        </div>
+      </form>
+    </div>
+  </div>
+  <script>
 const name = document.getElementById("name");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const phoneNumber = document.getElementById("phoneNumber");
-const gender = document.registration;
-const language = document.getElementById("language");
-const zipcode = document.getElementById("zipcode");
 
 // function for form varification
 function formValidation() {
@@ -151,24 +90,9 @@ function formValidation() {
     phoneNumber.focus();
     return false;
   }
-  // checking gender
-  if (gender.gender.value === "") {
-    alert("Please select your gender!");
-    return false;
-  }
-  // checking language
-  if (language.value === "") {
-    alert("Please select your language!")
-    return false;
-  }
-  // checking zip code
-  if (!zipcode.value.match(/^[0-9]{6}$/)) {
-    alert("Zip code must be 6 characters long number!");
-    zipcode.focus();
-    return false;
-  }
   return true;
 }
 </script>
+
 </body>
 </html>
