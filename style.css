@@ -1,5 +1,10 @@
 body{
-    background-image: linear-gradient(to bottom right, red, yellow);
+    background: linear-gradient(to bottom, #000000 0%, #ffffff 58%);
+
+
+
+
+
 }
 div {
     text-align: center;
@@ -13,8 +18,11 @@ h1 {
 button {
     width: 250px;
     height: 80px;
-    background-color: blue;
-    color: white;
+    font-size: 26px;
+    background-color: lightgrey;
+    color: red;
+    border-radius: 10px;
+    
 }
 
 p{
